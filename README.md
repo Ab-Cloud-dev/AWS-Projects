@@ -46,41 +46,48 @@ A beginner-friendly way to understand AWS S3, IAM permissions, bucket policies, 
 
 ---
 
-### ✅ 2. DevSecOps CI/CD Pipeline with GitHub Actions
+### ✅ 2. Deploying the 2048 game with EKS Fargate
 
-**Use Cases:**  
-- IaC security scanning with Snyk  
-- Static code analysis with SonarQube  
-- Dynamic testing with OWASP ZAP  
-- Secure GitHub Actions workflows for reusable pipelines
+
 
 **Tools Used:**  
-`GitHub Actions` · `Snyk` · `OWASP ZAP` · `SonarQube` · `Python/Node.js` · `Terraform`
 
----
+ - EKS Cluster: Managed Kubernetes control plane in AWS
+   
+ - Fargate: Serverless container hosting for application pods
+   
+ - 2048 Game Application: Web-based game running in pods
+   
+ - AWS Load Balancer Controller: Manages AWS load balancers for ingress traffic
+   
+ - IAM Integration: Secure authentication between Kubernetes and AWS services
 
-### ✅ 3. FinOps Automation with Cloudability, Harness, and QuickSight
+**Key Sections:**
 
-**Use Cases:**  
-- Automated cost insights and recommendations via API  
-- Jira ticket creation or dashboard ingestion based on right-sizing/decommission logic  
-- S3-to-QuickSight pipelines for cost visualization  
+ - Prerequisites Setup: Installing AWS CLI, kubectl, and configuring credentials
+   
+ - EKS Cluster Creation: Setting up the managed Kubernetes cluster with Fargate
 
-**Tools Used:**  
-`Apptio Cloudability` · `Harness` · `Lambda` · `QuickSight` · `Python` · `Jira API`
+ - Application Deployment: Deploying the 2048 game with proper Fargate profiles
 
----
+ - AWS Load Balancer Controller: Setting up ingress management with proper IAM roles
 
-### ✅ 4. Modular Terraform EKS Microservices Platform (placed as a separate repo in the root)
+ - Security Integration: OIDC provider and service account configuration
 
-**Use Cases:**  
-- VPC, IAM, EKS, RDS modules with Helm-based observability  
-- GitHub Actions for Helm chart deployment  
-- IRSA, Service Discovery, and secure ALB ingress setup  
+**Security Features**
 
-**Tools Used:**  
-`EKS` · `Helm` · `Terraform` · `GitHub Actions` · `Prometheus/Grafana` · `cert-manager`
+ - OIDC Integration: Enables secure IAM role assumption without long-term credentials
+ 
+ - Least Privilege: IAM policy grants only necessary permissions
+ 
+ - Service Account Binding: Links Kubernetes service accounts to AWS IAM roles
+ 
+ - Namespace Isolation: Application runs in dedicated namespace
+   
 
+   The documentation explains not just what each command does, but why it's necessary in the overall architecture. This should help anyone understand and replicate your EKS deployment process.
+
+   
 ---
 
 ## 🛠️ How to Use This Portfolio
