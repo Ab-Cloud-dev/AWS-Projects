@@ -26,7 +26,7 @@ Experienced Cloud Architect with a focus on delivering scalable, secure, and cos
 
 ---
 
-### ✅ 1. Multi-Account AWS Governance at Scale
+### ✅ 1. S3-Static WebHosting
 
 **Use Cases:**  
 
