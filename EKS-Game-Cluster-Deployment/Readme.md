@@ -28,7 +28,8 @@ sudo ./aws/install
 
 # Configure AWS credentials and region
 aws configure
-```<img width="1089" height="238" alt="Screenshot_1" src="https://github.com/user-attachments/assets/ce2940a9-a30d-47d9-b77a-055f582cb907" />
+```
+<img width="1089" height="238" alt="Screenshot_1" src="https://github.com/user-attachments/assets/ce2940a9-a30d-47d9-b77a-055f582cb907" />
 
 
 **Significance**: Sets up the AWS CLI tool needed to interact with AWS services. The `aws configure` command prompts for your AWS Access Key, Secret Key, default region, and output format.
