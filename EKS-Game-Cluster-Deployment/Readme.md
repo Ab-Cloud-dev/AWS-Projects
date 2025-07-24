@@ -88,18 +88,28 @@ sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
 ```bash
 
 # You can Create Script of the above command run it ( as shown below--script is created with the file name eks.sh)
+
+```
+
+
 <img width="563" height="89" alt="Screenshot_3" src="https://github.com/user-attachments/assets/e3ff0fa2-a15d-4b5f-94ae-d8e9f19f3e06" />
+
+
+```bash
 
 # Create EKS cluster with Fargate profile
 eksctl create cluster --name game-2048-cluster --region us-east-1 --fargate
+
 ```
 
 
 
 
 ```bash
+
 # Create EKS cluster with Fargate profile
 eksctl create cluster --name game-2048-cluster --region us-east-1 --fargate
+
 ```
 
 
