@@ -24,7 +24,8 @@ sudo ./aws/install
 
 # Configure AWS credentials and region
 aws configure
-```
+```<img width="1089" height="238" alt="Screenshot_1" src="https://github.com/user-attachments/assets/ce2940a9-a30d-47d9-b77a-055f582cb907" />
+
 
 **Significance**: Sets up the AWS CLI tool needed to interact with AWS services. The `aws configure` command prompts for your AWS Access Key, Secret Key, default region, and output format.
 
@@ -49,6 +50,33 @@ echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
 ## EKS Cluster Creation
 
 ### 3. Create EKS Cluster
+# First Installing ekctl(https://eksctl.io/installation/#for-unix:~:text=Limited%3A%20List%2C%20Read-,For%20Unix,%C2%B6,-To%20download%20the)
+
+```bash
+
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+ARCH=amd64
+PLATFORM=$(uname -s)_$ARCH
+
+curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+
+# (Optional) Verify checksum
+curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+
+tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+
+sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
+```
+
+```bash
+
+# You can Create Script of the above command run it ( as shown below--script is created with the file name eks.sh)
+<img width="563" height="89" alt="Screenshot_3" src="https://github.com/user-attachments/assets/e3ff0fa2-a15d-4b5f-94ae-d8e9f19f3e06" />
+
+# Create EKS cluster with Fargate profile
+eksctl create cluster --name game-2048-cluster --region us-east-1 --fargate
+```
+
 
 ```bash
 # Create EKS cluster with Fargate profile
@@ -99,6 +127,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-bala
 # Watch pods in the game-2048 namespace
 kubectl get pods -n game-2048 -w
 ```
+<img width="1540" height="693" alt="Screenshot_4" src="https://github.com/user-attachments/assets/103d8f7e-0697-4503-ad97-365ef6e04583" />
 
 **Significance**: Monitors the deployment progress. The `-w` flag watches for changes in real-time, showing when pods transition from Pending to Running state.
 
@@ -124,6 +153,7 @@ aws iam create-policy \
     --policy-name AWSLoadBalancerControllerIAMPolicy \
     --policy-document file://iam_policy.json
 ```
+<img width="1489" height="305" alt="Screenshot_5" src="https://github.com/user-attachments/assets/69642238-5e4c-48c2-a2f0-306e7d5f10f1" />
 
 **Significance**: Creates an IAM policy that grants the Load Balancer Controller the necessary permissions to:
 - Create and manage Application Load Balancers (ALB)
@@ -185,6 +215,7 @@ The controller will now automatically:
 - Create AWS Application Load Balancers (ALB) or Network Load Balancers (NLB) as needed
 - Manage target groups and register pods as targets
 - Handle SSL termination and routing rules
+<img width="1214" height="358" alt="Screenshot_6" src="https://github.com/user-attachments/assets/adabc3d3-7a6b-4f56-a7f8-33259d0c9a12" />
 
 ## Verification
 
@@ -199,6 +230,7 @@ kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
 
 **Significance**: Verifies that the AWS Load Balancer Controller is properly deployed and running. This controller will automatically create AWS load balancers based on Kubernetes Ingress resources.
+
 
 ## Architecture Summary
 
@@ -225,6 +257,8 @@ After completing these steps, you should have:
 - A scalable, serverless Kubernetes application platform
 
 To access the application, check the ingress resource for the external load balancer URL:
+<img width="1832" height="811" alt="Screenshot_8" src="https://github.com/user-attachments/assets/2b453dd2-3ecd-476e-a520-d18c04344d15" />
+<img width="1489" height="926" alt="Screenshot_9" src="https://github.com/user-attachments/assets/6db10fbc-ed76-4718-8a07-d3281c9dafb0" />
 
 ```bash
 kubectl get ingress -n game-2048
