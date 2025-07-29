@@ -86,9 +86,14 @@ This project demonstrates the migration of the VProfile application from an on-p
    - Set up AWS credentials and regional preferences
 
 2. **Infrastructure Provisioning**
-   ```bash
- 
+
+   - After configuring aws cli and terraform, you implement the terraform script named :: terraform.script.tf
+   
    ```
+terraform init
+terraform plan
+terraform apply
+```
 
 ### Phase 2: Service Deployment
 
