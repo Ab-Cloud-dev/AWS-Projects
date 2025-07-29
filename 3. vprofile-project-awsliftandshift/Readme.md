@@ -41,6 +41,10 @@ This project demonstrates the migration of the VProfile application from an on-p
 
 ## Application Request Flow
 
+
+<img width="740" height="756" alt="Diagram" src="https://github.com/user-attachments/assets/3fdab865-71ca-4349-8522-6b45190b8461" />
+
+
 ### 1. Client Request Initiation
 - User browser sends HTTP/HTTPS request to **Application Load Balancer (ALB)**
 - ALB performs SSL termination for HTTPS traffic
@@ -89,11 +93,12 @@ This project demonstrates the migration of the VProfile application from an on-p
 
    - After configuring aws cli and terraform, you implement the terraform script named :: terraform.script.tf
    
-   ```
+   (``
 terraform init
 terraform plan
 terraform apply
-```
+``)
+
 
 ### Phase 2: Service Deployment
 
@@ -108,15 +113,35 @@ terraform apply
 
 2. **DNS Configuration**
    - Update FQDN names in `src/main/resources/application.properties`
-   - Configure Route 53 private hosted zone entries
+   - Configure FQDN of the all three server inRoute 53 private hosted zone entries
    - Ensure proper service discovery and communication
 
 ### Phase 3: Validation and Testing
 
 #### Connectivity Verification
 - **Load Balancer Health Check**: Confirm ALB URL accessibility
+
+
+<img width="624" height="261" alt="ALB" src="https://github.com/user-attachments/assets/4618e835-7753-4a1e-9859-c429c28de225" />
+
+ 
 - **Application Login**: Validate authentication with admin_vp credentials
+
+
+<img width="624" height="320" alt="website" src="https://github.com/user-attachments/assets/d19a8518-7e45-44f6-b052-34df229c6b6f" />
+
+
+
+
+<img width="624" height="302" alt="website1" src="https://github.com/user-attachments/assets/6ae4b066-8f74-44fb-9036-14795acc5b79" />
+
 - **Functional Testing**: Verify core application features and data flow
+
+
+<img width="624" height="178" alt="website2" src="https://github.com/user-attachments/assets/40e819c7-ed83-4e9c-821b-4da014ef2441" />
+
+
+<img width="624" height="277" alt="website3" src="https://github.com/user-attachments/assets/cbcba6a6-d854-42a8-b5f0-391190cc6ee2" />
 
 #### Performance Validation
 - Monitor response times and throughput
