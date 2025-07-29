@@ -19,7 +19,6 @@ This project demonstrates the migration of the VProfile application from an on-p
 | **Terraform** | Infrastructure as Code | Provisions EC2 instances, VPC, Security Groups, NAT Gateway, Internet Gateway, Subnets, and Routing |
 | **EC2 Instances** | Compute Resources | Hosts application services (Tomcat, RabbitMQ, Memcached, MySQL) |
 | **Application Load Balancer (ALB)** | Traffic Distribution | Manages and distributes incoming traffic across application instances |
-| **Amazon S3** | Object Storage | Provides scalable storage solutions |
 | **Route 53** | DNS Management | Handles domain name resolution and private hosted zones |
 
 ## Lift-and-Shift Migration Strategy
