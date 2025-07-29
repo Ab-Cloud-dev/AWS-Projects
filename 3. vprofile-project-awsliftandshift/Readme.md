@@ -113,16 +113,21 @@ terraform apply
 
 2. **DNS Configuration**
    - Update FQDN names in `src/main/resources/application.properties`
-   - Configure FQDN of the all three server inRoute 53 private hosted zone entries
+   - Configure FQDN of the all three server inRoute 53 private hosted zone entries.
+
+  <img width="624" height="261" alt="ALB" src="https://github.com/user-attachments/assets/4618e835-7753-4a1e-9859-c429c28de225" />
+
    - Ensure proper service discovery and communication
 
 ### Phase 3: Validation and Testing
 
 #### Connectivity Verification
+
 - **Load Balancer Health Check**: Confirm ALB URL accessibility
 
 
-<img width="624" height="261" alt="ALB" src="https://github.com/user-attachments/assets/4618e835-7753-4a1e-9859-c429c28de225" />
+<img width="624" height="344" alt="ALB01" src="https://github.com/user-attachments/assets/ad18a2ff-f688-44c5-a97f-1d321a1e6575" />
+
 
  
 - **Application Login**: Validate authentication with admin_vp credentials
