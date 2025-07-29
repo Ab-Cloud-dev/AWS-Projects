@@ -87,7 +87,20 @@ A beginner-friendly way to understand AWS S3, IAM permissions, bucket policies, 
 
    The documentation explains not just what each command does, but why it's necessary in the overall architecture. This should help anyone understand and replicate your EKS deployment process.
 
+### ✅ 3.  VProfile Application Migration to AWS: Lift-and-Shift Strategy
+
+This project demonstrates the migration of the VProfile application from an on-premises data center to AWS cloud infrastructure using a lift-and-shift (rehosting) strategy. The migration maintains the existing application architecture while leveraging AWS managed services for improved scalability and reliability.
    
+### AWS Services Utilized
+
+| Service | Purpose | Implementation |
+|---------|---------|----------------|
+| **Terraform** | Infrastructure as Code | Provisions EC2 instances, VPC, Security Groups, NAT Gateway, Internet Gateway, Subnets, and Routing |
+| **EC2 Instances** | Compute Resources | Hosts application services (Tomcat, RabbitMQ, Memcached, MySQL) |
+| **Application Load Balancer (ALB)** | Traffic Distribution | Manages and distributes incoming traffic across application instances |
+| **Amazon S3** | Object Storage | Provides scalable storage solutions |
+| **Route 53** | DNS Management | Handles domain name resolution and private hosted zones |
+
 ---
 
 ## 🛠️ How to Use This Portfolio
