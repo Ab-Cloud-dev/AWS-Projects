@@ -4,7 +4,7 @@
 
 This project automates the creation of EBS (Elastic Block Store) snapshots across multiple AWS regions using AWS Lambda and sends detailed email notifications via SNS. The solution provides automated backup capabilities for EC2 instances, ensuring data protection and disaster recovery readiness.
 
-![Project Architecture](C:\Users\moham\OneDrive\Documents\GitHub\AWS-Projects\EBS%20Snapshot%20Automation%20Using%20Lambda\Images\architecture-diagram.png)
+![Project Architecture](\Images\architecture-diagram.png)
 
 ## 🏗️ Architecture
 
