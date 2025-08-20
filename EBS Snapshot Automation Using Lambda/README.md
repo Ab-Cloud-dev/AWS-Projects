@@ -66,7 +66,7 @@ aws-ebs-snapshot-automation/
 3. Choose "Standard" topic type
 4. Enter topic name: `ebs-snapshot-notifications`
 
-![SNS Topic Creation](images/sns-topic-setup.png)
+![SNS Topic Creation](C:\Users\moham\OneDrive\Documents\GitHub\AWS-Projects\EBS%20Snapshot%20Automation%20Using%20Lambda\Images\sns-topic-setup.png)
 
 5. Create the topic and note down the ARN
 6. Create subscription with your email address
@@ -109,8 +109,6 @@ Create an IAM role with the following permissions:
 }
 ```
 
-![IAM Permissions](images/iam-permissions.png)
-
 ### Step 3: Create Lambda Function
 
 1. Go to AWS Lambda Console
@@ -118,11 +116,11 @@ Create an IAM role with the following permissions:
 3. Choose "Author from scratch"
 4. Configure function:
    - **Function name**: `ebs-snapshot-automation`
-   - **Runtime**: Python 3.10
+   - **Runtime**: Python 3.13
    - **Architecture**: x86_64
    - **Execution role**: Use existing role created in Step 2
 
-![Lambda Function Creation](images/lambda-creation.png)
+![Lambda Function Creation](C:\Users\moham\OneDrive\Documents\GitHub\AWS-Projects\EBS%20Snapshot%20Automation%20Using%20Lambda\Images\lambda-creation.png)
 
 ### Step 4: Configure Lambda Function
 
@@ -132,7 +130,7 @@ Create an IAM role with the following permissions:
    - Key: `SNS_TOPIC_ARN`
    - Value: Your SNS topic ARN from Step 1
 
-![Lambda Configuration](images/lambda-configuration.png)
+![Lambda Configuration](C:\Users\moham\OneDrive\Documents\GitHub\AWS-Projects\EBS%20Snapshot%20Automation%20Using%20Lambda\Images\lambda-configuration.png)
 
 ### Step 5: Deploy the Code
 
@@ -232,7 +230,7 @@ This is an automated report from AWS Lambda EBS Snapshot function.
 ### Step 6: Test the Function
 
 1. Click "Test" in the Lambda console
-2. Create a test event (use default template)
+2. Create a dummy test event `{}` and run
 3. Run the test and verify:
    - Function executes successfully
    - Snapshots are created in EC2 console
