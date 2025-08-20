@@ -79,7 +79,7 @@ A beginner-friendly way to understand AWS S3, IAM permissions, bucket policies, 
 - Service Account Binding: Links Kubernetes service accounts to AWS IAM roles
 
 - Namespace Isolation: Application runs in dedicated namespace
-
+  
    The documentation explains not just what each command does, but why it's necessary in the overall architecture. This should help anyone understand and replicate your EKS deployment process.
 
 ### ✅ 3.  VProfile Application Migration to AWS: Lift-and-Shift Strategy
@@ -96,9 +96,7 @@ This project demonstrates the migration of the VProfile application from an on-p
 | **Amazon S3**                       | Object Storage         | Provides scalable storage solutions                                                                 |
 | **Route 53**                        | DNS Management         | Handles domain name resolution and private hosted zones                                             |
 
-
-
-# 📊4. AWS EBS Snapshot Automation Project Summary
+# 📊4. [AWS EBS Snapshot Automation Project Summary]((https://github.com/Ab-Cloud-dev/AWS-Projects/tree/main/4.%20EBS%20Snapshot%20Automation%20Using%20Lambda))
 
 ## 🎯 **Project Overview**
 
