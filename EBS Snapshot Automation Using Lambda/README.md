@@ -299,12 +299,6 @@ This is an automated report from AWS Lambda EBS Snapshot function.
 
 ## 🔧 Configuration Options
 
-### Environment Variables
-
-| Variable        | Description                 | Example                                            |
-| --------------- | --------------------------- | -------------------------------------------------- |
-| `SNS_TOPIC_ARN` | SNS topic for notifications | `arn:aws:sns:us-east-1:123456789012:ebs-snapshots` |
-
 ### Customization Options
 
 - **Regions**: Modify the `regions` list to include additional regions
