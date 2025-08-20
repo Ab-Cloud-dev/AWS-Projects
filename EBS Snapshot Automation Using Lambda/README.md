@@ -53,8 +53,7 @@ aws-ebs-snapshot-automation/
 │   └── cloudwatch-logs.png
 ├── docs/
 │   └── code-explanation.md
-└── deploy/
-    └── cloudformation-template.yaml
+
 ```
 
 ## 🚀 Implementation Steps
@@ -66,10 +65,11 @@ aws-ebs-snapshot-automation/
 3. Choose "Standard" topic type
 4. Enter topic name: `ebs-snapshot-notifications`
 
-![SNS Topic Creation](C:\Users\moham\OneDrive\Documents\GitHub\AWS-Projects\EBS%20Snapshot%20Automation%20Using%20Lambda\Images\sns-topic-setup.png)
+<img width="1754" height="746" alt="sns-topic-setup" src="https://github.com/user-attachments/assets/04367ba8-5c4e-4eed-b8e6-adcddcf2b07a" />
+
 
 5. Create the topic and note down the ARN
-6. Create subscription with your email address
+6. Create a subscription with your email address
 
 ### Step 2: Create IAM Role for Lambda
 
@@ -120,17 +120,13 @@ Create an IAM role with the following permissions:
    - **Architecture**: x86_64
    - **Execution role**: Use existing role created in Step 2
 
-![Lambda Function Creation](C:\Users\moham\OneDrive\Documents\GitHub\AWS-Projects\EBS%20Snapshot%20Automation%20Using%20Lambda\Images\lambda-creation.png)
+<img width="1590" height="697" alt="lambda-creation" src="https://github.com/user-attachments/assets/2bef7e99-fd25-44b0-84b2-30c53e5a74ca" />
+
 
 ### Step 4: Configure Lambda Function
 
 1. **Set Timeout**: Change from 3 seconds to 5 minutes (300 seconds)
 2. **Set Memory**: Increase to 512 MB for better performance
-3. **Add Environment Variable**:
-   - Key: `SNS_TOPIC_ARN`
-   - Value: Your SNS topic ARN from Step 1
-
-![Lambda Configuration](C:\Users\moham\OneDrive\Documents\GitHub\AWS-Projects\EBS%20Snapshot%20Automation%20Using%20Lambda\Images\lambda-configuration.png)
 
 ### Step 5: Deploy the Code
 
@@ -235,6 +231,12 @@ This is an automated report from AWS Lambda EBS Snapshot function.
    - Function executes successfully
    - Snapshots are created in EC2 console
    - Email notification is received
+  
+     
+<img width="1695" height="709" alt="Test" src="https://github.com/user-attachments/assets/5b55c442-6a33-41d9-b12e-48430de8e0e6" />
+
+
+<img width="1646" height="694" alt="Test-01" src="https://github.com/user-attachments/assets/6e89c6d2-3883-40ac-8914-e87d6fc804df" />
 
 ### Step 7: Set Up Automated Scheduling (Optional)
 
@@ -249,7 +251,7 @@ Create CloudWatch Event Rule to run the function automatically:
 
 Monitor your function using CloudWatch:
 
-![CloudWatch Logs](images/cloudwatch-logs.png)
+)
 
 - **CloudWatch Logs**: View execution logs and error messages
 - **CloudWatch Metrics**: Monitor execution duration, errors, and invocations
@@ -259,7 +261,8 @@ Monitor your function using CloudWatch:
 
 The function sends formatted email notifications:
 
-![Email Notification](images/email-notification.png)
+<img width="1277" height="579" alt="Email-Notification" src="https://github.com/user-attachments/assets/85ec8bf7-7ace-4217-8bf8-12d028fe732a" />
+
 
 ```
 Subject: EBS Snapshot Report - 3 snapshots created
@@ -367,13 +370,11 @@ This is an automated report from AWS Lambda EBS Snapshot function.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📞 Contact
 
-Your Name - [your.email@example.com](mailto:your.email@example.com)
+Abdullah - [mohammed.abdullah700@gmail.com](mailto:your.email@example.com)
 
 Project Link: [https://github.com/yourusername/aws-ebs-snapshot-automation](https://github.com/yourusername/aws-ebs-snapshot-automation)
 
