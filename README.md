@@ -42,64 +42,85 @@ Quickly launch and take down simple static pages for specific campaigns.
 -Learning AWS
 A beginner-friendly way to understand AWS S3, IAM permissions, bucket policies, and static web hosting concepts.
 
-
-
 ---
 
 ### ✅ 2. Deploying the 2048 game with EKS Fargate
 
-
-
 **Tools Used:**  
 
- - EKS Cluster: Managed Kubernetes control plane in AWS
-   
- - Fargate: Serverless container hosting for application pods
-   
- - 2048 Game Application: Web-based game running in pods
-   
- - AWS Load Balancer Controller: Manages AWS load balancers for ingress traffic
-   
- - IAM Integration: Secure authentication between Kubernetes and AWS services
+- EKS Cluster: Managed Kubernetes control plane in AWS
+
+- Fargate: Serverless container hosting for application pods
+
+- 2048 Game Application: Web-based game running in pods
+
+- AWS Load Balancer Controller: Manages AWS load balancers for ingress traffic
+
+- IAM Integration: Secure authentication between Kubernetes and AWS services
 
 **Key Sections:**
 
- - Prerequisites Setup: Installing AWS CLI, kubectl, and configuring credentials
-   
- - EKS Cluster Creation: Setting up the managed Kubernetes cluster with Fargate
+- Prerequisites Setup: Installing AWS CLI, kubectl, and configuring credentials
 
- - Application Deployment: Deploying the 2048 game with proper Fargate profiles
+- EKS Cluster Creation: Setting up the managed Kubernetes cluster with Fargate
 
- - AWS Load Balancer Controller: Setting up ingress management with proper IAM roles
+- Application Deployment: Deploying the 2048 game with proper Fargate profiles
 
- - Security Integration: OIDC provider and service account configuration
+- AWS Load Balancer Controller: Setting up ingress management with proper IAM roles
+
+- Security Integration: OIDC provider and service account configuration
 
 **Security Features**
 
- - OIDC Integration: Enables secure IAM role assumption without long-term credentials
- 
- - Least Privilege: IAM policy grants only necessary permissions
- 
- - Service Account Binding: Links Kubernetes service accounts to AWS IAM roles
- 
- - Namespace Isolation: Application runs in dedicated namespace
-   
+- OIDC Integration: Enables secure IAM role assumption without long-term credentials
+
+- Least Privilege: IAM policy grants only necessary permissions
+
+- Service Account Binding: Links Kubernetes service accounts to AWS IAM roles
+
+- Namespace Isolation: Application runs in dedicated namespace
 
    The documentation explains not just what each command does, but why it's necessary in the overall architecture. This should help anyone understand and replicate your EKS deployment process.
 
 ### ✅ 3.  VProfile Application Migration to AWS: Lift-and-Shift Strategy
 
 This project demonstrates the migration of the VProfile application from an on-premises data center to AWS cloud infrastructure using a lift-and-shift (rehosting) strategy. The migration maintains the existing application architecture while leveraging AWS managed services for improved scalability and reliability.
-   
+
 ### AWS Services Utilized
 
-| Service | Purpose | Implementation |
-|---------|---------|----------------|
-| **Terraform** | Infrastructure as Code | Provisions EC2 instances, VPC, Security Groups, NAT Gateway, Internet Gateway, Subnets, and Routing |
-| **EC2 Instances** | Compute Resources | Hosts application services (Tomcat, RabbitMQ, Memcached, MySQL) |
-| **Application Load Balancer (ALB)** | Traffic Distribution | Manages and distributes incoming traffic across application instances |
-| **Amazon S3** | Object Storage | Provides scalable storage solutions |
-| **Route 53** | DNS Management | Handles domain name resolution and private hosted zones |
+| Service                             | Purpose                | Implementation                                                                                      |
+| ----------------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------- |
+| **Terraform**                       | Infrastructure as Code | Provisions EC2 instances, VPC, Security Groups, NAT Gateway, Internet Gateway, Subnets, and Routing |
+| **EC2 Instances**                   | Compute Resources      | Hosts application services (Tomcat, RabbitMQ, Memcached, MySQL)                                     |
+| **Application Load Balancer (ALB)** | Traffic Distribution   | Manages and distributes incoming traffic across application instances                               |
+| **Amazon S3**                       | Object Storage         | Provides scalable storage solutions                                                                 |
+| **Route 53**                        | DNS Management         | Handles domain name resolution and private hosted zones                                             |
+
+
+
+# 📊4. AWS EBS Snapshot Automation Project Summary
+
+## 🎯 **Project Overview**
+
+Developed an **automated EBS backup solution** using AWS Lambda to create point-in-time snapshots of EC2 volumes across multiple regions, with intelligent email notifications and comprehensive error handling.
+
+## 🏗️ **Technical Architecture**
+
+- **Serverless automation** using AWS Lambda (Python 3.10)
+- **Multi-region processing** (US-East-1, US-East-2)
+- **Event-driven triggers** via Amazon EventBridge
+- **Email notifications** through Amazon SNS
+- **Centralized logging** with CloudWatch
+
+## ⚙️ **Core Functionality**
+
+### **Automated Backup Process:**
+
+1. **Scheduled execution** via CloudWatch Events/EventBridge
+2. **Volume discovery** - Identifies all in-use EBS volumes
+3. **Snapshot creation** - Creates point-in-time backups with metadata
+4. **Email reporting** - Sends detailed formatted notifications
+5. **Error handling** - Robust exception management and logging
 
 ---
 
