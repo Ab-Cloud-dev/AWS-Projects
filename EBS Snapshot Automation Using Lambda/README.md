@@ -125,8 +125,8 @@ Create an IAM role with the following permissions:
 
 ### Step 4: Configure Lambda Function
 
-1. **Set Timeout**: Change from 3 seconds to 5 minutes (300 seconds)
-2. **Set Memory**: Increase to 512 MB for better performance
+1. **Set Timeout**: Change from 3 seconds to 10 seconds 
+2. **Set Memory**: Increase to 256 MB for better performance
 
 ### Step 5: Deploy the Code
 
@@ -251,8 +251,6 @@ Create CloudWatch Event Rule to run the function automatically:
 
 Monitor your function using CloudWatch:
 
-)
-
 - **CloudWatch Logs**: View execution logs and error messages
 - **CloudWatch Metrics**: Monitor execution duration, errors, and invocations
 - **SNS Delivery Status**: Track email notification success/failure
@@ -370,7 +368,7 @@ This is an automated report from AWS Lambda EBS Snapshot function.
 
 Abdullah - [mohammed.abdullah700@gmail.com](mailto:your.email@example.com)
 
-Project Link: [https://github.com/yourusername/aws-ebs-snapshot-automation](https://github.com/yourusername/aws-ebs-snapshot-automation)
+Project Link: [https://github.com/yourusername/aws-ebs-snapshot-automation](https://github.com/Ab-Cloud-dev/AWS-Projects/aws-ebs-snapshot-automation)
 
 ## 🙏 Acknowledgments
 
