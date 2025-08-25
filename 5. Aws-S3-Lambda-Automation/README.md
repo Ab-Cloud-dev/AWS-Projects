@@ -72,7 +72,7 @@ This project demonstrates a real-world DevOps use case for automated file proces
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/aws-s3-lambda-automation.git
+git clone https://github.com/Ab-Cloud-dev/AWS-Projects.git
 cd 5. Aws-S3-Lambda-Automation
 ```
 
