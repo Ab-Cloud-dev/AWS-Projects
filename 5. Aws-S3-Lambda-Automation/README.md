@@ -97,6 +97,10 @@ terraform init
 ```
 
 
+<img width="2000" height="1039" alt="image" src="https://github.com/user-attachments/assets/7a709724-f4e8-4196-8cab-e264270665aa" />
+
+
+
 ```
 
 # Review the deployment plan
@@ -105,6 +109,12 @@ terraform plan
 # Deploy the infrastructure
 terraform apply
 ```
+
+<img width="1872" height="1125" alt="image" src="https://github.com/user-attachments/assets/c1b2f238-5e91-497e-abdb-c40716040aac" />
+
+
+
+
 
 ### 4. Test the System
 
@@ -118,6 +128,19 @@ aws s3 ls s3://devops-private-24203/
 # Check DynamoDB logs
 aws dynamodb scan --table-name xfusion-S3CopyLogs
 ```
+
+<img width="1656" height="1125" alt="image" src="https://github.com/user-attachments/assets/0de20b69-0320-4652-8e35-95a0a60d0d50" />
+
+
+
+<img width="1523" height="721" alt="image" src="https://github.com/user-attachments/assets/6cd966d0-de66-455b-8df7-634325dc12bc" />
+
+
+<img width="2000" height="839" alt="image" src="https://github.com/user-attachments/assets/c273a4a6-dd58-4314-96c0-5e249abc3cb2" />
+
+
+
+
 
 ## 📊 Monitoring & Logging
 
@@ -155,6 +178,8 @@ Each file operation creates a log entry with:
 The Lambda function uses these environment variables (automatically set by Terraform):
 - `DYNAMODB_TABLE` - DynamoDB table name
 - `PRIVATE_BUCKET` - Target bucket for file copies
+
+- 
 
 ### Customization Options
 
