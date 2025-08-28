@@ -120,6 +120,23 @@ Developed an **automated EBS backup solution** using AWS Lambda to create point-
 4. **Email reporting** - Sends detailed formatted notifications
 5. **Error handling** - Robust exception management and logging
 
+
+
+# 5. [AWS S3 Lambda File Transfer Automation  Project Summary]((https://github.com/Ab-Cloud-dev/AWS-Projects/tree/main/5.%20Aws-S3-Lambda-Automation)) 
+   
+## ⚙️ **Key Features**
+
+- ✅ **Event-Driven**: Automatic triggering on file upload
+- ✅ **Security**: Private bucket with blocked public access
+- ✅ **Audit Trail**: Complete logging of all operations
+- ✅ **Error Handling**: Robust error management and logging
+- ✅ **Cost Optimized**: Pay-per-request DynamoDB and serverless Lambda
+- ✅ **Infrastructure as Code**: Full Terraform automation
+
+## 🎯 **Project Overview**
+A serverless automation solution that automatically transfers files from a public S3 bucket to a private S3 bucket using AWS Lambda, with complete audit logging in DynamoDB.
+
+
 ---
 
 ## 🛠️ How to Use This Portfolio
