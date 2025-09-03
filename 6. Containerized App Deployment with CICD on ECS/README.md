@@ -24,7 +24,7 @@ I am giving my-crypto-app as name and tag as v1
 docker build . -t my-crypto-app:v1
 ```
 
-![](\Images\2025-09-01-16-05-40-image.png)
+<img width="1429" height="508" alt="2025-09-01-16-05-40-image" src="https://github.com/user-attachments/assets/bc9b774c-07b0-418c-b8e4-48678a16eb66" />
 
 ## Run the Docker Container
 
@@ -40,7 +40,7 @@ docker run -d -p 3000:5000 my-crypto-app:v1
 
  I am accessing the container over the port 3000
 
-![](/Images/2025-09-01-16-06-30-image.png)
+![](/assets/Images/2025-09-01-16-06-30-image.png)
 
 Providing credentials
 
