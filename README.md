@@ -26,25 +26,8 @@ Experienced Cloud Architect with a focus on delivering scalable, secure, and cos
 
 ---
 
-### ✅ 1. S3-Static WebHosting
 
-**Use Cases:**  
-
--Product landing pages
-Host marketing or informational pages for startups or applications.
-
--Company or team documentation
-Share internal or public-facing documentation with versioning support.
-
--Event or campaign pages
-Quickly launch and take down simple static pages for specific campaigns.
-
--Learning AWS
-A beginner-friendly way to understand AWS S3, IAM permissions, bucket policies, and static web hosting concepts.
-
----
-
-### ✅ 2. Deploying the 2048 game with EKS Fargate
+### ✅ 1. Deploying the 2048 game with EKS Fargate
 
 **Tools Used:**  
 
@@ -82,7 +65,7 @@ A beginner-friendly way to understand AWS S3, IAM permissions, bucket policies, 
   
    The documentation explains not just what each command does, but why it's necessary in the overall architecture. This should help anyone understand and replicate your EKS deployment process.
 
-### ✅ 3.  VProfile Application Migration to AWS: Lift-and-Shift Strategy
+### ✅ 2.  VProfile Application Migration to AWS: Lift-and-Shift Strategy
 
 This project demonstrates the migration of the VProfile application from an on-premises data center to AWS cloud infrastructure using a lift-and-shift (rehosting) strategy. The migration maintains the existing application architecture while leveraging AWS managed services for improved scalability and reliability.
 
@@ -122,7 +105,7 @@ Developed an **automated EBS backup solution** using AWS Lambda to create point-
 
 
 
-# 5. [AWS S3 Lambda File Transfer Automation  Project Summary]((https://github.com/Ab-Cloud-dev/AWS-Projects/tree/main/5.%20Aws-S3-Lambda-Automation)) 
+# 3. [AWS S3 Lambda File Transfer Automation  Project Summary]((https://github.com/Ab-Cloud-dev/AWS-Projects/tree/main/5.%20Aws-S3-Lambda-Automation)) 
    
 ## ⚙️ **Key Features**
 
