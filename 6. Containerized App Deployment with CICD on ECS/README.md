@@ -24,7 +24,7 @@ I am giving my-crypto-app as name and tag as v1
 docker build . -t my-crypto-app:v1
 ```
 
-![](/images/2025-09-01-16-05-40-image.png)
+![](\images\2025-09-01-16-05-40-image.png)
 
 ## Run the Docker Container
 
