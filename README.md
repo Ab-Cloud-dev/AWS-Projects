@@ -25,7 +25,7 @@ Experienced Cloud Architect with a focus on delivering scalable, secure, and cos
 > 📌 For complete code, see individual folders inside this repo.
 
 ---
-
+![alt text](image.png)
 
 ### ✅ 1. Deploying the 2048 game with EKS Fargate
 
