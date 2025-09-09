@@ -25,7 +25,11 @@ docker build . -t my-crypto-app:v1
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <img width="1429" height="508" alt="2025-09-01-16-05-40-image" src="https://github.com/user-attachments/assets/bc9b774c-07b0-418c-b8e4-48678a16eb66" />
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-05-40-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-05-40-image.png)
 >>>>>>> Stashed changes
@@ -45,7 +49,11 @@ docker run -d -p 3000:5000 my-crypto-app:v1
  I am accessing the container over the port 3000
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/assets/Images/2025-09-01-16-06-30-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-06-30-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-06-30-image.png)
 >>>>>>> Stashed changes
@@ -58,7 +66,11 @@ password123
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-10-33-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-10-33-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-10-33-image.png)
 >>>>>>> Stashed changes
@@ -83,9 +95,15 @@ In the ECR registry page, select the registry created. Click on **View Push Comm
 Authenticate the docker client to the registry created in the previous step using the below commands.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-33-23-image.png)
 
 ![](/Images/2025-09-01-16-33-55-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-33-23-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-33-55-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-33-23-image.png)
 
@@ -113,7 +131,11 @@ docker push <account_id>.dkr.ecr.us-east-1.amazonaws.com/crypto-app:latest
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-37-04-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-37-04-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-37-04-image.png)
 >>>>>>> Stashed changes
@@ -144,7 +166,11 @@ Finally, click "Create" to create the ECS cluster.
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-43-54-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-43-54-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-43-54-image.png)
 >>>>>>> Stashed changes
@@ -159,7 +185,11 @@ Navigate to the Amazon ECS service page within the AWS Management Console.Click 
 Click the "Create new Task Definition" button.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-45-42-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-45-42-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-45-42-image.png)
 >>>>>>> Stashed changes
@@ -179,9 +209,15 @@ Click "Create" to create the task definition.
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   ![](/Images/2025-09-01-16-48-57-image.png)
 
 ![](/Images/2025-09-01-16-50-24-image.png)
+=======
+  ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-48-57-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-50-24-image.png)
+>>>>>>> Stashed changes
 =======
   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-48-57-image.png)
 
@@ -206,9 +242,15 @@ To create an ECS service named crypto-app with the specified details, follow the
 8. Create the Load Balance as well 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-57-14-image.png)
 
 ![](/Images/2025-09-01-16-57-36-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-57-14-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-57-36-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-57-14-image.png)
 
@@ -222,11 +264,19 @@ Note: It may take a few minutes for the service to be up and running, so please 
 Once created. Go to the Application Load Balancer for the DNS name 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-17-14-50-image.png)
 
 ![](/Images/2025-09-01-17-13-29-image.png)
 
 ![](/Images/2025-09-01-17-13-57-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-14-50-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-13-29-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-13-57-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-14-50-image.png)
 
@@ -252,6 +302,7 @@ For looking into application logs, click on the Logs tab
 2. Navigate to AWS Codebuild console and click on “Connections” under settings.
    
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
    ![](/Images/2025-09-01-17-29-38-image.png)
    
    Give the connection name 
@@ -259,6 +310,15 @@ For looking into application logs, click on the Logs tab
    ![](/Images/2025-09-01-17-31-21-image.png)
    
    ![](/Images/2025-09-01-17-28-07-image.png)
+=======
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-29-38-image.png)
+   
+   Give the connection name 
+   
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-31-21-image.png)
+   
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-28-07-image.png)
+>>>>>>> Stashed changes
 =======
    ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-29-38-image.png)
    
@@ -278,11 +338,19 @@ For looking into application logs, click on the Logs tab
 5. Under source select github as a source provider.
    
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
    ![](/Images/2025-09-01-17-34-44-image.png)
 
 6. Under GitHub repo, select the one your application code relies.
    
    ![](/Images/2025-09-01-17-36-00-image.png)
+=======
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-34-44-image.png)
+
+6. Under GitHub repo, select the one your application code relies.
+   
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-36-00-image.png)
+>>>>>>> Stashed changes
 =======
    ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-34-44-image.png)
 
@@ -300,7 +368,11 @@ For looking into application logs, click on the Logs tab
 10. Click on “Update project”.
     
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     ![](/Images/2025-09-01-17-44-09-image.png)
+=======
+    ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-44-09-image.png)
+>>>>>>> Stashed changes
 =======
     ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-44-09-image.png)
 >>>>>>> Stashed changes
@@ -341,7 +413,11 @@ And Commit to the repository
 Change the login.html ---> from LOGIN to LOGIN--V2
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-17-59-57-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-59-57-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-59-57-image.png)
 >>>>>>> Stashed changes
@@ -381,7 +457,11 @@ Change the login.html ---> from LOGIN to LOGIN--V2
      Give imagedefinition.json
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-21-55-48-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-21-55-48-image.png)
+>>>>>>> Stashed changes
 =======
 ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-21-55-48-image.png)
 >>>>>>> Stashed changes
