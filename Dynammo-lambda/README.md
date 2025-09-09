@@ -21,9 +21,9 @@ Function Name: getStudent
 
 Runtime: Python 3.13
 Architecture x86_64
-
+![test](image.png)
 Execution Role: studentlambdarole
-
+![alt text](image.png)
 ##4) Provisioning Lambda Code 
 Add code, script Name : Python-get-Student.py
 and edit the dynamodb table name in our case it is 'Student'
