@@ -24,7 +24,11 @@ I am giving my-crypto-app as name and tag as v1
 docker build . -t my-crypto-app:v1
 ```
 
+<<<<<<< Updated upstream
 <img width="1429" height="508" alt="2025-09-01-16-05-40-image" src="https://github.com/user-attachments/assets/bc9b774c-07b0-418c-b8e4-48678a16eb66" />
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-05-40-image.png)
+>>>>>>> Stashed changes
 
 ## Run the Docker Container
 
@@ -40,7 +44,11 @@ docker run -d -p 3000:5000 my-crypto-app:v1
 
  I am accessing the container over the port 3000
 
+<<<<<<< Updated upstream
 ![](/assets/Images/2025-09-01-16-06-30-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-06-30-image.png)
+>>>>>>> Stashed changes
 
 Providing credentials
 
@@ -49,7 +57,11 @@ admin
 password123
 ```
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-10-33-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-10-33-image.png)
+>>>>>>> Stashed changes
 
 # 
 
@@ -70,9 +82,15 @@ Please note if you are running the above command locally then make sure to insta
 In the ECR registry page, select the registry created. Click on **View Push Commands** and use commands to perform the task on the terminal provided.
 Authenticate the docker client to the registry created in the previous step using the below commands.
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-33-23-image.png)
 
 ![](/Images/2025-09-01-16-33-55-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-33-23-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-33-55-image.png)
+>>>>>>> Stashed changes
 
 ```
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account_id>.dkr.ecr.us-east-1.amazonaws.com
@@ -94,7 +112,11 @@ docker push <account_id>.dkr.ecr.us-east-1.amazonaws.com/crypto-app:latest
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-37-04-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-37-04-image.png)
+>>>>>>> Stashed changes
 
 ## Create an ECS Cluster
 
@@ -121,7 +143,11 @@ Auto-assign public IP: Enabled
 Finally, click "Create" to create the ECS cluster.
 ```
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-43-54-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-43-54-image.png)
+>>>>>>> Stashed changes
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -132,7 +158,11 @@ Finally, click "Create" to create the ECS cluster.
 Navigate to the Amazon ECS service page within the AWS Management Console.Click on "Task Definitions" in the left navigation pane.
 Click the "Create new Task Definition" button.
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-45-42-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-45-42-image.png)
+>>>>>>> Stashed changes
 
 ```
 **Task definition configuration**
@@ -148,9 +178,15 @@ For "Log configuration", select "Auto-configure CloudWatch Logs". Specify the Lo
 Click "Create" to create the task definition.
 ```
 
+<<<<<<< Updated upstream
   ![](/Images/2025-09-01-16-48-57-image.png)
 
 ![](/Images/2025-09-01-16-50-24-image.png)
+=======
+  ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-48-57-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-50-24-image.png)
+>>>>>>> Stashed changes
 
 ------------------------------------------------------------------------------------------------------------------------------
 
@@ -169,9 +205,15 @@ To create an ECS service named crypto-app with the specified details, follow the
 7. Under "Network configuration", select the default VPC and default subnets that you have selected for the ECS Cluster. For the security group, choose the existing microservices-sg.
 8. Create the Load Balance as well 
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-16-57-14-image.png)
 
 ![](/Images/2025-09-01-16-57-36-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-57-14-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-16-57-36-image.png)
+>>>>>>> Stashed changes
 
 9. Click "Create Service" to finish the setup.
 
@@ -179,11 +221,19 @@ Note: It may take a few minutes for the service to be up and running, so please 
 
 Once created. Go to the Application Load Balancer for the DNS name 
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-17-14-50-image.png)
 
 ![](/Images/2025-09-01-17-13-29-image.png)
 
 ![](/Images/2025-09-01-17-13-57-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-14-50-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-13-29-image.png)
+
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-13-57-image.png)
+>>>>>>> Stashed changes
 
 You can validate the service status by checking the service details:
 
@@ -201,6 +251,7 @@ For looking into application logs, click on the Logs tab
 
 2. Navigate to AWS Codebuild console and click on “Connections” under settings.
    
+<<<<<<< Updated upstream
    ![](/Images/2025-09-01-17-29-38-image.png)
    
    Give the connection name 
@@ -208,6 +259,15 @@ For looking into application logs, click on the Logs tab
    ![](/Images/2025-09-01-17-31-21-image.png)
    
    ![](/Images/2025-09-01-17-28-07-image.png)
+=======
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-29-38-image.png)
+   
+   Give the connection name 
+   
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-31-21-image.png)
+   
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-28-07-image.png)
+>>>>>>> Stashed changes
    
    more info:: https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html
 
@@ -217,11 +277,19 @@ For looking into application logs, click on the Logs tab
 
 5. Under source select github as a source provider.
    
+<<<<<<< Updated upstream
    ![](/Images/2025-09-01-17-34-44-image.png)
 
 6. Under GitHub repo, select the one your application code relies.
    
    ![](/Images/2025-09-01-17-36-00-image.png)
+=======
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-34-44-image.png)
+
+6. Under GitHub repo, select the one your application code relies.
+   
+   ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-36-00-image.png)
+>>>>>>> Stashed changes
 
 7. Under Environment leave all of them as default.
 
@@ -231,7 +299,11 @@ For looking into application logs, click on the Logs tab
 
 10. Click on “Update project”.
     
+<<<<<<< Updated upstream
     ![](/Images/2025-09-01-17-44-09-image.png)
+=======
+    ![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-44-09-image.png)
+>>>>>>> Stashed changes
 
 11. In IAM click on the role that the codebuild created.
 
@@ -268,7 +340,11 @@ And Commit to the repository
 
 Change the login.html ---> from LOGIN to LOGIN--V2
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-17-59-57-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-17-59-57-image.png)
+>>>>>>> Stashed changes
 
 ## Configure connection  to CodePipeline
 
@@ -304,7 +380,11 @@ Change the login.html ---> from LOGIN to LOGIN--V2
      Action Provider: Amazon ECS
      Give imagedefinition.json
 
+<<<<<<< Updated upstream
 ![](/Images/2025-09-01-21-55-48-image.png)
+=======
+![](C:\Users\moham\AppData\Roaming\marktext\images\2025-09-01-21-55-48-image.png)
+>>>>>>> Stashed changes
 
 6. -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
    
