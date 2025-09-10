@@ -17,9 +17,9 @@ This guide walks you through building a complete serverless student management s
 - **Database**: DynamoDB for data storage
 - **Security**: IAM roles for permissions
 
-![alt text](./images/image-11.png)
+![alt text](./Images/image-11.png)
 
- ![alt text](./images/20250910-1027-52.3631716.gif)
+ ![alt text](./Images/20250910-1027-52.3631716.gif)
 
 
 ## **Optional: You can also use main.tf to deploy the infrastructure. or use below method**
@@ -120,7 +120,7 @@ This Lambda function inserts new student records into DynamoDB when called throu
 - **Execution Role**: `studentlambdarole`
 
 
-![alt text](./images/image.png)
+![alt text](./Images/image.png)
 
 
 
@@ -175,7 +175,7 @@ API Gateway acts as the front door for our REST API, routing HTTP requests to ap
 3. Click "Test"
 4. **Expected**: Returns student data from DynamoDB
 
-![alt text](./images/20250910-0856-19.1034599.gif)
+![alt text](./Images/20250910-0856-19.1034599.gif)
 
 ### Why Lambda Proxy Integration?
 - **Simplified**: Entire HTTP request passed to Lambda
@@ -199,7 +199,7 @@ Enables HTTP POST requests to create new student records.
    - Use Lambda Proxy Integration: ✓
 
 
-![alt text](./images/20250910-0906-10.9339067.gif)
+![alt text](./Images/20250910-0906-10.9339067.gif)
 
 3. **Test with Sample Data**
    ```json
@@ -216,7 +216,7 @@ Enables HTTP POST requests to create new student records.
 
 ---
 
-![alt text](./images/20250910-0920-36.4111143.gif)
+![alt text](./Images/20250910-0920-36.4111143.gif)
 
 ## Step 7: Deploy API Gateway
 
@@ -229,22 +229,22 @@ Deployment makes your API accessible via public URLs.
 3. **Stage Name**: `prod`
 4. **Click Deploy**
 
-![alt text](./images/image-1.png)
-![alt text](./images/image-2.png)
+![alt text](./Images/image-1.png)
+![alt text](./Images/image-2.png)
 
 
 ## 8) Insert API URL into script.js
 
 - Copy the API Endpoint URL
 
-![alt text](./images/image-3.png)
+![alt text](./Images/image-3.png)
 
 ### Update API URLs
 1. **Copy your API Gateway endpoints** from Step 7
 2. **Replace placeholders** in `script.js` with actual URLs
 
 
-![alt text](./images/image-4.png)
+![alt text](./Images/image-4.png)
 
 
 ## Step 9: Create S3 Bucket and Enable Static Website Hosting
@@ -269,7 +269,7 @@ S3 serves our static website files globally with high availability and low cost.
    - **Enable** static website hosting
    - **Index document**: `index.html`
    - **Error document**: `index.html` (for SPA routing)
-   ![alt text](./images/image-5.png)
+   ![alt text](./Images/image-5.png)
 
 
 4. **Configure Public Access Policy**
@@ -295,10 +295,10 @@ S3 serves our static website files globally with high availability and low cost.
 
 ### Result
 Your website is now accessible via S3 URL, but API calls will fail due to CORS restrictions.
-![alt text](./images/image-6.png)
+![alt text](./Images/image-6.png)
 
 
-![alt text](./images/image-7.png)
+![alt text](./Images/image-7.png)
 
 ---
 
@@ -310,11 +310,11 @@ CORS (Cross-Origin Resource Sharing) allows your S3-hosted website to make API c
 ### What is CORS?
 When a web page loaded from one domain (S3) tries to make requests to another domain (API Gateway), browsers block these requests by default for security. CORS headers tell the browser which cross-origin requests are allowed.
 
-![alt text](./images/image-8.png)
+![alt text](./Images/image-8.png)
 
 And now you should be able to access to get and put the data.
 
-![alt text](./images/20250910-1012-26.2217507.gif)
+![alt text](./Images/20250910-1012-26.2217507.gif)
 
 ### Result
 Your S3 website can now successfully communicate with API Gateway.
@@ -362,18 +362,18 @@ Your application is now available via CloudFront with global caching and HTTPS s
 
 ---
 
-![alt text](./images/image-9.png)
+![alt text](./Images/image-9.png)
  
  You should be be able to access the website form the cloud front dns.
 
 ### Result
 Your application is now available via CloudFront with global caching and HTTPS support.
 
- ![alt text](./images/20250910-1027-52.3631716.gif)
+ ![alt text](./Images/20250910-1027-52.3631716.gif)
 
  If have custom domain and have SSL cert for it then you can add that domain as alternate and use it.
 
- ![alt text](./images/image-10.png)
+ ![alt text](./Images/image-10.png)
 
 
  ---
