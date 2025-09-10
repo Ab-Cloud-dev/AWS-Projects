@@ -85,6 +85,8 @@ Lambda functions need permissions to execute and access AWS services. We create 
 
 **Security Note**: In production, replace `AmazonDynamoDBFullAccess` with a custom policy that grants access only to the specific `Student` table.
 
+<img width="2000" height="701" alt="image" src="https://github.com/user-attachments/assets/381a08bb-6f91-42c6-a5d2-386e43e3a150" />
+
 ---
 
 ## Step 3: Create Lambda Function for Reading Data
