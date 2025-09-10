@@ -63,8 +63,6 @@ Api Name: student_api
 
 Then create a method for Getting the data by following below 
 
-![alt text](<Creating-Api Gateway Method--low.gif>)
-
-
+![alt text](<Creating-Api Gateway Method--low-1.gif>)
 
 
