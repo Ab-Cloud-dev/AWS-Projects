@@ -19,7 +19,7 @@ This guide walks you through building a complete serverless student management s
 
 ![alt text](./Images/image-11.png)
 
- ![alt text](./Images/20250910-1027-52.3631716.gif)
+ ![alt text](./Images/Overview.gif)
 
 
 ## **Optional: You can also use main.tf to deploy the infrastructure. or use below method**
