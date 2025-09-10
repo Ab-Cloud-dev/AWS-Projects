@@ -1,5 +1,8 @@
 ## 1) First Creating the DynamoDB with the student as partition key
 
+
+![alt text](image-11.png)
+
 ```
 aws application-autoscaling put-scaling-policy --service-namespace 'dynamodb' --resource-id 'table/console_e264d683-c20f-45b9-bbfa-fcf2dc7cc743;' --scalable-dimension 'dynamodb:table:ReadCapacityUnits' --policy-name 'console_e264d683-c20f-45b9-bbfa-fcf2dc7cc743;-scaling-policy' --policy-type 'TargetTrackingScaling' --target-tracking-scaling-policy-configuration '{"PredefinedMetricSpecification":{"PredefinedMetricType":"DynamoDBReadCapacityUtilization"},"TargetValue":70}' 
 ```
@@ -160,5 +163,19 @@ REST APIs often serve data to various client applications (web, mobile, desktop)
 And now you should be able to access to get and put the data.
 
 ![alt text](20250910-1012-26.2217507.gif)
- 
 
+Creat CloudFront Distrubution with the Default settings and attach the S3.
+
+![alt text](image-9.png)
+ 
+ You should be be able to access the website form the cloud front dns.
+
+ ![alt text](20250910-1027-52.3631716.gif)
+
+ If have custom domain and have SSL cert for it then you can add that domain as alternate and use it.
+
+ ![alt text](image-10.png)
+
+
+
+ 
