@@ -1,5 +1,12 @@
 # This will be divided in two phases
 
+
+![](./Images/image-6.png)
+
+![](./Images/image-7.png)
+
+
+
 ## 1) Fist testing the project locally.
 
 ## 2) Then deploying the image to ECS via ECR and accessing the environment via AWS ALP
@@ -203,30 +210,11 @@ In Health and Metrics, Deployments current state should be completed. In case it
 ![](./Images/2025-09-01-17-29-38-image.png)
 
 
-![](./Images/2025-09-01-17-29-38-image.png)
-
  Give the connection name
 
 ![](./Images/2025-09-01-17-31-21-image.png)
 
 ![](./Images/2025-09-01-17-28-07-image.png)
-
- ![](images\2025-09-01-17-29-38-image.png)
-
- Give the connection name
-
- ![](images\2025-09-01-17-31-21-image.png)
-
- ![](images\2025-09-01-17-28-07-image.png)
-
-
- ![](images\2025-09-01-17-29-38-image.png)
-
- Give the connection name
-
- ![](images\2025-09-01-17-31-21-image.png)
-
- ![](images\2025-09-01-17-28-07-image.png)
 
 
  more info:: https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html
@@ -236,19 +224,6 @@ In Health and Metrics, Deployments current state should be completed. In case it
 4. Provide a name for it.
 
 5. Under source select github as a source provider.
-
-
-![](./Images/2025-09-01-17-34-44-image.png)
-
-6. Under GitHub repo, select the one your application code relies.
-
-![](./Images/2025-09-01-17-36-00-image.png)
-
- ![](images\2025-09-01-17-34-44-image.png)
-
-6. Under GitHub repo, select the one your application code relies.
-
- ![](images\2025-09-01-17-36-00-image.png)
 
 
  ![](images\2025-09-01-17-34-44-image.png)
@@ -269,31 +244,60 @@ In Health and Metrics, Deployments current state should be completed. In case it
 
  ![](./Images/2025-09-01-17-44-09-image.png)
 
-  ![](images\2025-09-01-17-44-09-image.png)
+
+## Update the CodeBuild Role which you will be using.
+
+For a **basic ECS CI/CD pipeline**, you need:
+| Permission Type | Purpose | Required For |
+| --- | --- | --- |
+| ECR Access | Push/pull Docker images | docker push<font class="font0">, </font><font class="font5">docker pull</font> |
+| ECS Task Definition | Register new task definitions | aws ecs register-task-definition |
+| IAM PassRole | Pass execution role to ECS | Task definitions with <font class="font5">executionRoleArn</font> |
+| Secrets Manager | Access Docker credentials | Docker Hub login |
+| S3 Access | Store build artifacts | CodePipeline integration |
+| CloudWatch Logs | Build logging | CodeBuild execution logs |
+
+If Iam PassRole is not allowed then you can create the Policy with the following and the policy to the CodeBuild Role
+
+```
+{
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "ecs:RegisterTaskDefinition",
+                   "ecs:DeregisterTaskDefinition",
+                   "ecs:ListTaskDefinitions",
+                   "ecs:DescribeTaskDefinition"
+               ],
+               "Resource": "*"
+           },
+           {
+               "Effect": "Allow",
+               "Action": "iam:PassRole",
+               "Resource": "arn:aws:iam::423207801186:role/ecsTaskExecutionRole",
+               "Condition": {
+                   "StringEquals": {
+                       "iam:PassedToService": "ecs-tasks.amazonaws.com"
+                   }
+               }
+           }
+       ]
+   }
+```
 
 
-  ![](images\2025-09-01-17-44-09-image.png)
+![](./Images/image.png)
 
 
-11. In IAM click on the role that the codebuild created.
 
-12. Give “AmazonSSMFullAccess” to access the parameters in Systems Manager and “AWSS3FullAccess” to upload the artifacts.
 
-13. Click on “Start build”.
-  Upon successful build it will look like:
 
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  ## start build
-
-In a new browser tab, navigate to the AWS CodeBuild service page.
-
-While the cluster is being created, you can proceed with the following tasks:
-
-Run Build for CodeBuild project codebuild-crypto-app to build the docker image and push it to the ECR repository.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## edit the buildspec.yml file.
+## edit the buildspec.yml  and the task-definition file.
 
 In the pre-build commands section, we need to update the lines below.
 
@@ -304,22 +308,13 @@ ECR_REPOSITORY_NAME: "my-app-repo"
 ECS_CONTAINER_NAME: "my-app-container"
 ```
 
+- Update the Task Definition, with your aws ID under images and execution role
+
 And Commit to the repository
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Change the login.html ---> from LOGIN to LOGIN--V2
 
-
-![](./Images/2025-09-01-17-59-57-image.png)
-
-![](images\2025-09-01-17-59-57-image.png)
-
-
-![](images\2025-09-01-17-59-57-image.png)
-
-
-## Configure connection  to CodePipeline
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -331,7 +326,7 @@ Change the login.html ---> from LOGIN to LOGIN--V2
  In the Add Source Stage section:
 ```
  a. Select Github self-managed from the drop-down menu under Source Provider.
- b. Click on the connection column and select the connection named gitlab-connection
+ b. Click on the connection column and select the connection named github-connection
  b. Enter the repository name as crypto-app.
  c. Specify the branch name as main.
  d. Leave the remaining options at their default settings and click on NEXT.
@@ -354,30 +349,48 @@ Change the login.html ---> from LOGIN to LOGIN--V2
    Action Provider: Amazon ECS
    Give imagedefinition.json
 
+![](./Images/image-4.png)
 
-![](./Images/2025-09-01-21-55-48-image.png)
+# Testing the Pipeline
 
-![](images\2025-09-01-21-55-48-image.png)
-
-
-![](images\2025-09-01-21-55-48-image.png)
+-  We will test the pipelin by Changing  the login.html ---> from LOGIN to LOGIN--V2
 
 
-6. -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Before
 
- ## start build
+![Before](./Images/image-1.png)
 
- Now click on start build on the right corner of the project that you created. while the build is happening continue to explore the project page.
- Once the build is completed you can see the docker image is uploaded to ECR crypto-app created in this lab.
+Change in the Login.HTML
 
- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](./Images/image-2.png)
 
-## Configure connection  to github
+After:
 
- In this lab, you will create an ECS cluster and deploy a service on AWS ECS. You will use the EC2 launch type for the ECS cluster.
+![](./Images/image-3.png)
 
-Deploy the Docker image manually using the AWS Management Console on ECS.
-The ECS cluster should be ready, and you will create a task definition and service.
-After that, you will deploy the service on AWS ECS, all via the console.
 
- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Next Section is to use RDS for storing the credentails.
+
+
+![](./Images/image-8.png)
+
+## 1) Create a RDS Instance
+- Navigate to the RDS service in the AWS Management Console.
+- Click on "Create database".
+- Select "Standard Create".
+- Choose "PostgesSQL" as the engine type.
+- Select the "Free tier" template.
+- Configure the following settings:
+  - DB instance identifier: `mydbinstance`
+   - Master username: `postgres`
+   - Master password: `YourPassword123` (replace with a secure password)
+   - DB instance class: `db.t2.micro`
+   - Storage type: `General Purpose (SSD)`
+   - Allocated storage: `20 GB`
+   - Public access: `Yes`
+   - VPC security group: `Default`
+   - Initial database name: `microservice`
+- Click "Create database" to launch the instance.
+
+  -
