@@ -1,207 +1,331 @@
-# This will be divided in two phases
+
+# Containerized Application Deployment with CI/CD on AWS ECS
+
+## 🚀 Live Demo
+
+Check out the live application deployed through this CI/CD pipeline:
+
+[![Project Thumbnail](./Images/Screenshot_1.png)](https://www.youtube.com/watch?v=D1iqkughmFs)
+
+🔗  [Crypto App Demo](https://www.youtube.com/watch?v=D1iqkughmFs)
 
 
-![](./Images/image-6.png)
-
-![](./Images/image-7.png)
 
 
+## Project Overview
 
-## 1) Fist testing the project locally.
+This project demonstrates how to create a complete CI/CD pipeline to build, test, and deploy a containerized microservice application using AWS services. The microservice is deployed onto Amazon Elastic Container Service (ECS) for high availability and scalability, with proper configuration of ECS clusters, services, and tasks to efficiently run containers.
 
-## 2) Then deploying the image to ECS via ECR and accessing the environment via AWS ALP
+## Table of Contents
 
-# Phase- 01  First, Testing the Image locally
+- [Architecture Overview](#architecture-overview)
+- [Implementation Phases](#implementation-phases)
+- [Phase 1: Local Development and Testing](#phase-1-local-development-and-testing)
+  - [Step 1: Clone the Repository](#step-1-clone-the-repository)
+  - [Step 2: Build the Docker Image](#step-2-build-the-docker-image)
+  - [Step 3: Run the Docker Container](#step-3-run-the-docker-container)
+  - [Step 4: Test the Application](#step-4-test-the-application)
+- [Phase 2: AWS Deployment with CI/CD Pipeline](#phase-2-aws-deployment-with-cicd-pipeline)
+  - [Step 1: Create ECR Repository](#step-1-create-ecr-repository)
+  - [Step 2: Push Docker Image to ECR](#step-2-push-docker-image-to-ecr)
+  - [Step 3: Create ECS Cluster](#step-3-create-ecs-cluster)
+  - [Step 4: Create Task Definition](#step-4-create-task-definition)
+  - [Step 5: Create ECS Service](#step-5-create-ecs-service)
+- [CI/CD Pipeline Setup](#cicd-pipeline-setup)
+  - [Step 1: Create GitHub Connection](#step-1-create-github-connection)
+  - [Step 2: Create CodeBuild Project](#step-2-create-codebuild-project)
+  - [Step 3: Configure CodeBuild IAM Permissions](#step-3-configure-codebuild-iam-permissions)
 
-### Clone the repository:
+---# CI/CD Pip2. Click on **"Connections"** under **Settings**
 
-```
+![CodeBuild Connections](./Images/2025-09-01-17-29-38-image.png)
+
+3. Create a new connection and provide a connection name
+
+![Connection Name](./Images/2025-09-01-17-31-21-image.png)
+
+![GitHub Connection](./Images/2025-09-01-17-28-07-image.png)
+
+> **Additional Info:** For detailed instructions, refer to the [AWS Documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html)
+## Step 1: Create GitHub Connection
+
+### 1.1 Setup GitHub Connection
+
+1. Navigate to AWS CodeBuild console
+2. Click on **"Connections"** under **Settings** Elastic Container Service (ECS) for high availability and scalability, with proper configuration of ECS clusters, services, and tasks to efficiently run containers.
+
+## Architecture Overview
+
+![Architecture Diagram](./Images/image-6.png)
+
+![Implementation Flow](./Images/image-7.png)
+
+## Implementation Phases
+
+This project is divided into two main phases:
+
+### Phase 1: Local Development and Testing
+- Clone and set up the project locally
+- Build and test the Docker image
+- Run the application in a local container
+
+### Phase 2: AWS Deployment with CI/CD
+- Deploy the Docker image to Amazon ECR
+- Configure ECS cluster, task definitions, and services
+- Set up CI/CD pipeline with CodeBuild and CodePipeline
+- Access the application through AWS Application Load Balancer
+
+---
+
+# Phase 1: Local Development and Testing
+
+## Step 1: Clone the Repository
+
+First, clone the repository and navigate to the project directory:
+
+```bash
 git clone https://github.com/Ab-Cloud-dev/ECR-Demo.git
-
 cd ECR-Demo/monolith-aws-microservice-project/
 ```
 
-### Build the Docker Image
+## Step 2: Build the Docker Image
 
-Navigate to the directory containing the Dockerfile and run the command.Replace your-image-name:tag with the desired name and tag for your image.
+Navigate to the directory containing the Dockerfile and build the Docker image. Replace `your-image-name:tag` with the desired name and tag for your image.
 
-I am giving my-crypto-app as name and tag as v1
+In this example, we'll use `my-crypto-app` as the name and `v1` as the tag:
 
 ```bash
 docker build . -t my-crypto-app:v1
 ```
 
+![Docker Build Process](./Images/2025-09-01-16-05-40-image.png)
 
-<img width="1429" height="508" alt="2025-09-01-16-05-40-image" src="https://github.com/user-attachments/assets/bc9b774c-07b0-418c-b8e4-48678a16eb66" />
+## Step 3: Run the Docker Container
 
-
-
-
-## Run the Docker Container
-
- After building the image, run it using **docker run -d -p local-port:container-port your-image-name:tag**, adjusting local-port and container-port as necessary for your application.
+After building the image, run it using the following command. This maps the local port 3000 to the container port 5000:
 
 ```bash
 docker run -d -p 3000:5000 my-crypto-app:v1
 ```
 
-## Test the Application:
+## Step 4: Test the Application
 
- With the container running, you can test your application by accessing it via the local port you specified, using tools like curl, Postman, or your web browser, depending on the nature of your application.
+With the container running, you can test your application by accessing it via the local port you specified. Open your web browser and navigate to `http://localhost:3000`.
 
- I am accessing the container over the port 3000
-![](./Images/2025-09-01-16-06-30-image.png)
+![Application Running Locally](./Images/2025-09-01-16-06-30-image.png)
 
-- Providing credentials
+### Application Credentials
 
-```
-admin
-password123
-```
-
-
-![](./Images/2025-09-01-16-10-33-image.png)
-
-
-#
-
-# <h1 style="color: yellow;">**Phase-2 Deploying the image to ECS via ECR and accessing the environment via AWS ALP**</h1>
-
-First Create a New ECR Repository,
+Use the following credentials to log in:
 
 ```
-aws ecr create-repository --repository-name "crypto-app"  --image-scanning-configuration scanOnPush=true --region us-east-1
+Username: admin
+Password: password123
 ```
 
-- Please note if you are running the above command locally then make sure to install the aws cli and configured the keys.
+![Application Login Success](./Images/2025-09-01-16-10-33-image.png)
 
-## Pushing the Docker image to ECR
+---
 
-- In the ECR registry page, select the registry created. Click on **View Push Commands** and use commands to perform the task on the terminal provided.
-Authenticate the docker client to the registry created in the previous step using the below commands.
+# Phase 2: AWS Deployment with CI/CD Pipeline
 
-![](./Images/2025-09-01-16-33-23-image.png)
+## Step 1: Create ECR Repository
 
-![](./Images/2025-09-01-16-33-55-image.png)
+Create a new Amazon ECR (Elastic Container Registry) repository to store your Docker image:
 
-
-
+```bash
+aws ecr create-repository --repository-name "crypto-app" --image-scanning-configuration scanOnPush=true --region us-east-1
 ```
+
+> **Note:** Ensure you have AWS CLI installed and configured with the appropriate credentials before running this command.
+
+## Step 2: Push Docker Image to ECR
+
+### 2.1 Get Push Commands
+
+In the ECR console, select the repository you created and click on **"View Push Commands"** to see the commands needed to push your image.
+
+![ECR Repository](./Images/2025-09-01-16-33-23-image.png)
+
+![Push Commands](./Images/2025-09-01-16-33-55-image.png)
+
+### 2.2 Authenticate Docker Client
+
+Authenticate your Docker client to the ECR registry:
+
+```bash
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <account_id>.dkr.ecr.us-east-1.amazonaws.com
 ```
 
-- As we already have an image, we will be pushing the image to ECR.
+### 2.3 Tag the Image
 
-- First, tag the Image built so we can push it to the specified ECR registry.
+Since we already have a local image, tag it for the ECR repository:
 
+```bash
+docker tag my-crypto-app:v1 <account_id>.dkr.ecr.us-east-1.amazonaws.com/crypto-app:latest
 ```
-docker tag crypto-app:latest <account_id>.dkr.ecr.us-east-1.amazonaws.com/crypto-app:latest
-```
 
-- Then Push the image to the ECR.
+### 2.4 Push the Image
 
-```
+Push the image to ECR:
+
+```bash
 docker push <account_id>.dkr.ecr.us-east-1.amazonaws.com/crypto-app:latest
 ```
-![](./Images/2025-09-01-16-37-04-image.png)
 
+![Image Push Success](./Images/2025-09-01-16-37-04-image.png)
 
-## Create an ECS Cluster
+## Step 3: Create ECS Cluster
 
-- To create an ECS cluster named microservices-cluster with the EC2 launch type, you would follow these steps in the AWS Management Console:
+Create an ECS cluster to run your containerized application. Follow these steps in the AWS Management Console:
 
-- Sign in to the AWS Management Console using the provided credentials.Navigate to the Amazon ECS service page. Click on "Clusters" in the left navigation pane.Click the "Create Cluster" button.
-Provide the following details:
+### 3.1 Access ECS Console
 
+1. Sign in to the AWS Management Console
+2. Navigate to the Amazon ECS service page
+3. Click on **"Clusters"** in the left navigation pane
+4. Click the **"Create Cluster"** button
 
-```
-Cluster name: microservices-cluster
-Infrastructure configuration: Amazon EC2 Instance
-On-Demand Instance
-Operating System: Amazon Linux 2
-Instance type: t3a.micro
-Instance role: Create a new role
-Min/Max/Desired: 1/1/3
-SSH key pair: None
-Root EBS volume size: 30 GB
-Networking configuration
-VPC: Default VPC
-Subnets: All Default Subnets or choose three subnets
-Security group (Existing): Default(make sure it allows all ports)
-Auto-assign public IP: Enabled
-Finally, click "Create" to create the ECS cluster.
-```
-![](./Images/2025-09-01-16-43-54-image.png)
+### 3.2 Configure Cluster Settings
 
+Provide the following configuration details:
 
-### **Create a Task Definition**
+| Setting | Value |
+|---------|-------|
+| **Cluster name** | `microservices-cluster` |
+| **Infrastructure configuration** | Amazon EC2 Instance |
+| **Instance type** | On-Demand Instance |
+| **Operating System** | Amazon Linux 2 |
+| **Instance type** | `t3a.micro` |
+| **Instance role** | Create a new role |
+| **Min/Max/Desired capacity** | 1/1/3 |
+| **SSH key pair** | None |
+| **Root EBS volume size** | 30 GB |
 
- - Create a task definition named crypto-app with the specified details, follow these steps:
+### 3.3 Networking Configuration
 
-- Navigate to the Amazon ECS service page within the AWS Management Console.Click on "Task Definitions" in the left navigation pane.
-Click the "Create new Task Definition" button.
+| Setting | Value |
+|---------|-------|
+| **VPC** | Default VPC |
+| **Subnets** | All Default Subnets (or choose three subnets) |
+| **Security group** | Default (ensure it allows all required ports) |
+| **Auto-assign public IP** | Enabled |
 
-![](./Images/2025-09-01-16-45-42-image.png)
+3. Click **"Create"** to create the ECS cluster
 
+![ECS Cluster Configuration](./Images/2025-09-01-16-43-54-image.png)
 
+## Step 4: Create Task Definition
 
-```
-**Task definition configuration**
-Task definition Name: crypto-app
-For "Task Execution Role", select ecsTaskExecutionRole.
-Set "Task memory (GB)" to 0.5 GB and "Task CPU (vCPU)" to 0.25 vCPU.
-Click "Add container" to define the container for this task.
-For "Container name", enter crypto-app.
-In the "Image" field, enter the Image URL you got from the ECR repository for crypto-app.
-Under "Port mappings", set the "Container port": 5000,
-"Port name": 5000 of protocol HTTP.
-For "Log configuration", select "Auto-configure CloudWatch Logs". Specify the Log Group Name as /ecs/crypto-app.
-Click "Create" to create the task definition.
-```
-![](./Images/2025-09-01-16-48-57-image.png)
+## Step 4: Create Task Definition
 
-![](./Images/2025-09-01-16-50-24-image.png)
+Create a task definition that specifies how your container should run. Follow these steps:
 
+### 4.1 Access Task Definitions
 
-## Create an ECS service
+1. Navigate to the Amazon ECS service page in the AWS Management Console
+2. Click on **"Task Definitions"** in the left navigation pane
+3. Click the **"Create new Task Definition"** button
 
-To create an ECS service named crypto-app with the specified details, follow these steps:
+![Task Definition Creation](./Images/2025-09-01-16-45-42-image.png)
 
-  1. Navigate back to the Amazon ECS service page within the AWS Management Console.
-  2. Click on "Clusters" in the left navigation pane and select your microservices-cluster.
-  3. On the "Services" tab, click "Create".
-  4. Select the crypto-app task definition of the latest revision.
-  5. Enter crypto-app-service as the service name.
-  6. Set the number of desired tasks to 1.
-  7. Under "Network configuration", select the default VPC and default subnets that you have selected for the ECS Cluster. For the security group, choose the existing microservices-sg.
-  8. Create the Load Balance as well.
+### 4.2 Configure Task Definition
 
-![](./Images/2025-09-01-16-57-14-image.png)
+Provide the following configuration details:
 
-![](./Images/2025-09-01-16-57-36-image.png)
+| Setting | Value |
+|---------|-------|
+| **Task definition name** | `crypto-app` |
+| **Task execution role** | `ecsTaskExecutionRole` |
+| **Task memory (GB)** | 0.5 GB |
+| **Task CPU (vCPU)** | 0.25 vCPU |
 
-9. Click "Create Service" to finish the setup.
+### 4.3 Container Configuration
 
-- Note: It may take a few minutes for the service to be up and running, so please be patient.
+Click **"Add container"** and configure the container with these settings:
 
-- Once created. Go to the Application Load Balancer for the DNS name.
-![](./Images/2025-09-01-17-14-50-image.png)
+| Setting | Value |
+|---------|-------|
+| **Container name** | `crypto-app` |
+| **Image** | ECR repository URL (e.g., `<account_id>.dkr.ecr.us-east-1.amazonaws.com/crypto-app:latest`) |
+| **Container port** | `5000` |
+| **Port name** | `5000` |
+| **Protocol** | `HTTP` |
 
-![](./Images/2025-09-01-17-13-29-image.png)
+### 4.4 Logging Configuration
 
-![](./Images/2025-09-01-17-13-57-image.png)
+- **Log configuration**: Select "Auto-configure CloudWatch Logs"
+- **Log Group Name**: `/ecs/crypto-app`
 
-- You can validate the service status by checking the service details:
+Click **"Create"** to create the task definition.
 
-- After service creation, click on the service name crypto-app and check the status of the service.
-In Health and Metrics, Deployments current state should be completed. In case it is not, you can check errors in the Events tab.
-- For looking into application logs, click on the Logs tab
+![Task Definition Configuration](./Images/2025-09-01-16-48-57-image.png)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![Task Definition Success](./Images/2025-09-01-16-50-24-image.png)
 
-## Create a Repo
+## Step 5: Create ECS Service
 
-# Configure the build using the AWS CodeBuild service.
+Create an ECS service to run and maintain your task definition. Follow these steps:
+
+### 5.1 Navigate to Service Creation
+
+1. Navigate back to the Amazon ECS service page in the AWS Management Console
+2. Click on **"Clusters"** in the left navigation pane
+3. Select your `microservices-cluster`
+4. On the **"Services"** tab, click **"Create"**
+
+### 5.2 Configure Service Settings
+
+| Setting | Value |
+|---------|-------|
+| **Task Definition** | `crypto-app` (latest revision) |
+| **Service name** | `crypto-app-service` |
+| **Desired tasks** | `1` |
+
+### 5.3 Network Configuration
+
+| Setting | Value |
+|---------|-------|
+| **VPC** | Default VPC (same as ECS Cluster) |
+| **Subnets** | Default subnets (same as ECS Cluster) |
+| **Security group** | `microservices-sg` |
+| **Load Balancer** | Create new Application Load Balancer |
+
+![Service Configuration](./Images/2025-09-01-16-57-14-image.png)
+
+![Load Balancer Configuration](./Images/2025-09-01-16-57-36-image.png)
+
+5. Click **"Create Service"** to finish the setup
+
+> **Note:** It may take a few minutes for the service to be up and running. Please be patient.
+
+### 5.4 Access the Application
+
+Once the service is created, access your application through the Application Load Balancer:
+
+1. Go to the Application Load Balancer section in the AWS Console
+2. Copy the DNS name of your load balancer
+3. Open the DNS name in your browser to access the application
+
+![Load Balancer DNS](./Images/2025-09-01-17-14-50-image.png)
+
+![Application Access](./Images/2025-09-01-17-13-29-image.png)
+
+![Application Running](./Images/2025-09-01-17-13-57-image.png)
+
+### 5.5 Validate Service Status
+
+To verify your service is running correctly:
+
+1. Click on the service name `crypto-app-service`
+2. Check the service status in the **Health and Metrics** section
+3. Ensure the deployment state shows as **"completed"**
+4. If there are issues, check the **Events** tab for error details
+5. View application logs in the **Logs** tab
+
+---
+
+# CI/CD Pipeline Setup
 
  Create AWS Code Build Project
 
