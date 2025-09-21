@@ -36,24 +36,6 @@ This project demonstrates how to create a complete CI/CD pipeline to build, test
   - [Step 2: Create CodeBuild Project](#step-2-create-codebuild-project)
   - [Step 3: Configure CodeBuild IAM Permissions](#step-3-configure-codebuild-iam-permissions)
 
----# CI/CD Pip2. Click on **"Connections"** under **Settings**
-
-![CodeBuild Connections](./Images/2025-09-01-17-29-38-image.png)
-
-3. Create a new connection and provide a connection name
-
-![Connection Name](./Images/2025-09-01-17-31-21-image.png)
-
-![GitHub Connection](./Images/2025-09-01-17-28-07-image.png)
-
-> **Additional Info:** For detailed instructions, refer to the [AWS Documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html)
-## Step 1: Create GitHub Connection
-
-### 1.1 Setup GitHub Connection
-
-1. Navigate to AWS CodeBuild console
-2. Click on **"Connections"** under **Settings** Elastic Container Service (ECS) for high availability and scalability, with proper configuration of ECS clusters, services, and tasks to efficiently run containers.
-
 ## Architecture Overview
 
 ![Architecture Diagram](./Images/image-6.png)
@@ -327,6 +309,15 @@ To verify your service is running correctly:
 
 # CI/CD Pipeline Setup
 
+
+## Step 1: Create GitHub Connection
+
+### 1.1 Setup GitHub Connection
+
+1. Navigate to AWS CodeBuild console
+2. Click on **"Connections"** under **Settings** Elastic Container Service (ECS) for high availability and scalability, with proper configuration of ECS clusters, services, and tasks to efficiently run containers.
+![CodeBuild Connections](./Images/2025-09-01-17-29-38-image.png)
+
  Create AWS Code Build Project
 
 2. Navigate to AWS Codebuild console and click on “Connections” under settings.
@@ -421,7 +412,7 @@ If Iam PassRole is not allowed then you can create the Policy with the following
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## edit the buildspec.yml  and the task-definition file.
+## Edit the buildspec.yml  and the task-definition file.
 
 In the pre-build commands section, we need to update the lines below.
 
@@ -432,13 +423,6 @@ ECR_REPOSITORY_NAME: "my-app-repo"
 ECS_CONTAINER_NAME: "my-app-container"
 ```
 
-- Update the Task Definition, with your aws ID under images and execution role
-
-And Commit to the repository
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -447,6 +431,8 @@ And Commit to the repository
  Click on Create Pipeline.
  Under category select Build custom pipeline and click on next.
  In the Settings section, enter the name crypto-app and leave the remaining options at their default settings. Then, click on NEXT.
+
+
  In the Add Source Stage section:
 ```
  a. Select Github self-managed from the drop-down menu under Source Provider.
@@ -469,6 +455,14 @@ And Commit to the repository
  f. Leave rest of the options default and click on NEXT.
  Review the configuration and click on Create Pipeli
 ```
+
+
+
+![Connection Name](./Images/2025-09-01-17-31-21-image.png)
+
+![GitHub Connection](./Images/2025-09-01-17-28-07-image.png)
+
+> **Additional Info:** For detailed instructions, refer to the [AWS Documentation](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html)
 2) Action Name :
    Action Provider: Amazon ECS
    Give imagedefinition.json
