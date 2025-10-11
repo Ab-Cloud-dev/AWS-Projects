@@ -16,7 +16,8 @@ This project demonstrates a real-world DevOps use case for automated file proces
 
 ## 🏗️ Architecture
 
-![20251011-1515-41 3759661](https://github.com/user-attachments/assets/40e30d81-a364-4bf7-8a4b-feacb0f7d2da)
+![Overview (2)](https://github.com/user-attachments/assets/0ab624a6-71d2-4771-bc90-f482c001c696)
+
 
 
 ## 📋 Components
