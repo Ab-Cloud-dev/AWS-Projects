@@ -16,20 +16,9 @@ This project demonstrates a real-world DevOps use case for automated file proces
 
 ## 🏗️ Architecture
 
-```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Public S3     │    │   AWS Lambda     │    │   Private S3    │
-│     Bucket      │───▶│   Copy Function  │───▶│     Bucket      │
-│                 │    │                  │    │                 │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌──────────────────┐
-                       │    DynamoDB      │
-                       │   Audit Logs     │
-                       │                  │
-                       └──────────────────┘
-```
+![Overview (2)](https://github.com/user-attachments/assets/0ab624a6-71d2-4771-bc90-f482c001c696)
+
+
 
 ## 📋 Components
 
